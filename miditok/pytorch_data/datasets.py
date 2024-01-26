@@ -309,7 +309,7 @@ class DatasetJsonIO(_DatasetABC):
         :return: the tokens as a dictionary mapping to the token ids as a tensor.
         """
         with self.samples[idx].open() as json_file:
-            token_ids = json.load(json_file)["ids"]
+            token_ids = json.load(json_file)["ids"][0]
         if self.max_seq_len is not None and len(token_ids) > self.max_seq_len:
             token_ids = token_ids[: self.max_seq_len]
 
