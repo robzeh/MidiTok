@@ -314,6 +314,7 @@ class DatasetJsonIO(_DatasetABC):
                 token_ids = f["ids"]
             else:
                 print(f"Failed opening file with index {idx}")
+                print(self)
                 return
         if self.max_seq_len is not None and len(token_ids) > self.max_seq_len:
             token_ids = token_ids[: self.max_seq_len]
