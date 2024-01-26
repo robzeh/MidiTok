@@ -311,7 +311,7 @@ class DatasetJsonIO(_DatasetABC):
         with self.samples[idx].open() as json_file:
             f = json.load(json_file)
             if "ids" in f:
-                token_ids = f["ids"]
+                token_ids = f["ids"][0]
             else:
                 print(f"Failed opening file with index {idx}")
                 print(self)
